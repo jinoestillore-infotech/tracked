@@ -1,0 +1,39 @@
+/student-tracker
+│
+├── /assets
+│   ├── /css
+│   ├── /js
+│
+├── /includes
+│   ├── db.php
+│   ├── header.php
+│   ├── footer.php
+│
+├── /auth
+│   ├── login.php
+│   ├── register.php
+│   ├── logout.php
+│
+├── /dashboard
+│   ├── index.php
+│
+├── /subjects
+│   ├── add.php
+│   ├── edit.php
+│   ├── delete.php
+│   ├── view.php
+│   ├── index.php
+│
+├── /topics
+│   ├── add.php
+│   ├── edit.php
+│   ├── delete.php
+│
+├── /planner
+│   ├── index.php
+│
+├── /notes
+│   ├── add.php
+│   ├── edit.php
+│
+└── index.php

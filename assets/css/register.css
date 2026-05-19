@@ -1,0 +1,71 @@
+:root {
+    --primary: #4f46e5;
+    --dark: #0f172a;
+    --muted: #dfe1e6;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 0px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Inputs */
+.form-control {
+    background: transparent;
+    border: 1px solid #334155;
+    color: white;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background: transparent;
+    color: white;
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+label {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+/* Button */
+.btn-primary-custom {
+    background: var(--primary);
+    border: none;
+    padding: 12px;
+}
+
+.btn-primary-custom:hover {
+    background: #3730a3;
+}
+
+/* Text links */
+a {
+    color: #a5b4fc;
+    text-decoration: none;
+}
+
+/* Alerts */
+.alert {
+    font-size: 14px;
+}

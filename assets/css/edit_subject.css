@@ -1,0 +1,41 @@
+.form-control{
+    border-radius: 12px;
+    padding: 10px 14px;
+}
+
+.card{
+    border-radius: 18px;
+}
+
+.welcome-card{
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+/* Back Button */
+.welcome-card .btn-light{
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    transition: 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.welcome-card .btn-light:hover{
+    background: #fff;
+    color: #4f46e5;
+}
+
+/* Add Day Button */
+.welcome-card .btn-light.fw-semibold{
+    background: #fff;
+    color: #4f46e5;
+    border: none;
+}
+
+.welcome-card .btn-light.fw-semibold:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}

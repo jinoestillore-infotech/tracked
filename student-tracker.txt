@@ -1,0 +1,61 @@
+Student Learning Tracker System
+
+Overview:
+
+A Student Learning Tracker System is a web application that helps students organize subjects, 
+track progress, and monitor their learning activities in one place.
+
+Core Purpose:
+
+1. Stay organized
+2. Track learning progress
+3. Improve study habits
+4. Manage subjects and topics easily
+
+Features:
+
+1. User Account System
+- Students can register and log in
+- Each user has their own dashboard
+
+2. Subject Management
+- Add subjects like Math, Science, English
+- Edit or delete subjects
+
+3. Topic Tracking
+Each subject has topics:
+
+Example: 
+Math
+ 1. Algebra
+ 2. Geometry
+ 3. Fractions
+
+4. Progress Tracker
+- Automatically calculates progress per subject
+- Shows percentage (e.g. 60% completed)
+
+5. Study Planner
+Add study schedules
+
+Example:
+Monday: Algebra
+Tuesday: Science
+
+6. Notes per Topic
+Add notes under each topic
+
+Example:
+formulas
+summaries
+reminders
+
+7. Reminders
+- Notify students of upcoming study schedules
+
+8. Dashboard Overview
+
+A homepage showing:
+
+- total subjects
+- to be added here

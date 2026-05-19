@@ -1,0 +1,41 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+.auth-wrapper {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 30px;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+}
+
+.form-control {
+    background: transparent;
+    border: 1px solid #334155;
+    color: white;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background: transparent;
+    color: white;
+    border-color: #4f46e5;
+    box-shadow: none;
+}
+
+.text-danger {
+    font-size: 13px;
+}
+
+a {
+    color: #a5b4fc;
+    text-decoration: none;
+}
