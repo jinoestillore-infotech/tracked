@@ -11,6 +11,7 @@ include '../includes/header.php';
 ?>
 
 <link href="../assets/css/day_schedule.css" rel="stylesheet">
+
 </head>
 <body>
 <div class="container py-4">
@@ -67,7 +68,7 @@ include '../includes/header.php';
                             Add Subjects
                         </h6>
                         <small class="text-light opacity-50">
-                            Click Add Subject to create class schedules with subject details, room, instructor, and time.
+                            Click &apos;Add Subject&apos; to create class schedules with subject details, room, instructor, and time.
                         </small>
                     </div>
                 </div>
@@ -130,7 +131,7 @@ include '../includes/header.php';
                                         <?= date("g:i A", strtotime($subject['end_time'])); ?>
                                     </p>
                                 </div>
-                                <div class="subject-icon">
+                                <div class="subject-icon m-0">
                                     <i class="bi bi-journal-text"></i>
                                 </div>
                             </div>
@@ -146,7 +147,7 @@ include '../includes/header.php';
                     id="subjectModal<?= $subject['id']; ?>"
                     tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content border-0 shadow-lg rounded-4">
+                        <div class="modal-content border-0 shadow-lg rounded-4 p-2">
                             <!-- Header -->
                             <div class="modal-header border-0 pb-0">
                                 <div>
@@ -160,7 +161,6 @@ include '../includes/header.php';
                                 <button type="button"
                                         class="btn-close"
                                         data-bs-dismiss="modal"></button>
-
                             </div>
                             <!-- Body -->
                             <div class="modal-body pt-3">
@@ -242,39 +242,41 @@ include '../includes/header.php';
 
 <!-- Add Subject Modal -->
 <div class="modal fade" id="addSubjectModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content p-2">
             <form action="process_add_subject.php" method="POST" data-loading-form>
                 <input type="hidden"
                        name="day_id"
                        value="<?= $day_id; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="subject-icon">
+                        <i class="bi bi-calendar2-week fs-1"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Subject
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">
-                            Subject Code
-                        </label>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">
+                                Subject Code
+                            </label>
 
-                        <input type="text"
-                               name="subject_code"
-                               class="form-control"
-                               placeholder="IT101">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">
-                            Subject Name
-                        </label>
-                        <input type="text"
-                               name="subject_name"
-                               class="form-control"
-                               required>
+                            <input type="text"
+                                name="subject_code"
+                                class="form-control"
+                                placeholder="IT101">
+                        </div>
+                        <div class="col-md-8">
+                            <label class="form-label fw-semibold">
+                                Subject Name
+                            </label>
+                            <input type="text"
+                                name="subject_name"
+                                class="form-control"
+                                required>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
@@ -331,14 +333,14 @@ include '../includes/header.php';
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light border rounded-pill"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">Save Subject</span>
                         <span class="spinner-border spinner-border-sm d-none"></span>

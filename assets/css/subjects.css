@@ -87,3 +87,15 @@
     flex-shrink: 0;
     box-shadow: 0 6px 16px rgba(79,70,229,0.35);
 }
+
+.modal-icon{
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background: #f1f5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #0d6efd;
+}

@@ -120,7 +120,7 @@ $files = $fileStmt->get_result();
                             </div>
                             <div></div>
                         </div>
-                        <div class="card-footer border-0">
+                        <div class="card-footer border-0 mb-2">
                             <!-- Buttons -->
                             <div class="d-flex flex-wrap gap-2">
                                 <!-- View -->

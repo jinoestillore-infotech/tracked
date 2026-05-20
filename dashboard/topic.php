@@ -37,13 +37,7 @@ include '../includes/header.php';
             <div class="col-12 col-lg-9
                         order-2 order-lg-1
                         text-center text-lg-start">
-                <h3 class="fw-bold text-white mb-2">
-                    <?= htmlspecialchars($topic['topic_name']); ?>
-                </h3>
-                <p class="text-light opacity-75 mb-2 text-break">
-                    <?= htmlspecialchars($topic['description']); ?>
-                </p>
-                <span class="badge rounded-pill px-3 py-2
+                    <span class="badge rounded-pill px-3 py-2 mb-2
                     <?=
                         $topic['mastery_level'] == 'Mastered'
                         ? 'bg-success'
@@ -55,6 +49,12 @@ include '../includes/header.php';
                     ?>">
                     <?= $topic['mastery_level']; ?>
                 </span>
+                <h3 class="fw-bold text-white mb-0">
+                    <?= htmlspecialchars($topic['topic_name']); ?>
+                </h3>
+                <p class="text-light opacity-75 mb-1 text-break">
+                    <?= htmlspecialchars($topic['description']); ?>
+                </p>
             </div>
         </div>
     </div>
@@ -79,21 +79,21 @@ include '../includes/header.php';
 <div class="modal fade"
      id="addHighlightModal"
      tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_highlight.php"
                   method="POST"
                   data-loading-form>
                 <input type="hidden"
                        name="topic_id"
                        value="<?= $topic['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Highlight
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <label class="form-label fw-semibold">
@@ -105,14 +105,14 @@ include '../includes/header.php';
                               placeholder="Important exam pointers..."
                               required></textarea>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                                 Save Highlight
@@ -127,8 +127,8 @@ include '../includes/header.php';
 <div class="modal fade"
      id="uploadFileModal"
      tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_upload_file.php"
                   method="POST"
                   enctype="multipart/form-data"
@@ -136,13 +136,13 @@ include '../includes/header.php';
                 <input type="hidden"
                        name="topic_id"
                        value="<?= $topic['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-folder"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Upload Learning File
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <label class="form-label fw-semibold">
@@ -156,14 +156,14 @@ include '../includes/header.php';
                         Allowed: PDF, DOCX, PPT, Images
                     </small>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                                 Upload File
@@ -178,21 +178,21 @@ include '../includes/header.php';
 <div class="modal fade"
      id="addQuestionModal"
      tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_question.php"
                   method="POST"
                   data-loading-form>
                 <input type="hidden"
                        name="topic_id"
                        value="<?= $topic['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-patch-question"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Practice Question
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -214,14 +214,14 @@ include '../includes/header.php';
                                   required></textarea>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                                 Save Question

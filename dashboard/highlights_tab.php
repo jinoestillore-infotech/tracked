@@ -125,24 +125,29 @@ $highlights = $highlightStmt->get_result();
                 <div class="modal fade"
                     id="viewHighlightModal<?= $highlight['id']; ?>"
                     tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered modal-md mb-5 pb-5 modal-dialog-scrollable">
-                        <div class="modal-content border-0 shadow-lg rounded-4">
+                    <div class="modal-dialog modal-dialog-centered mb-5 pb-5 modal-dialog-scrollable">
+                        <div class="modal-content border-0 shadow-lg rounded-4 p-2">
                             <!-- Header -->
                             <div class="modal-header border-0 pb-2">
-                                <div>
-                                    <h5 class="modal-title fw-bold">
-                                        Highlight Details
-                                    </h5>
-                                    <small class="text-muted pb-1 mb-2">
+                                <div class="d-flex flex-column">
+                                    <!-- Icon + Title -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="modal-icon">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+
+                                        <h5 class="modal-title fw-bold mb-0">
+                                            Highlight Details
+                                        </h5>
+                                    </div>
+                                    <!-- Date below -->
+                                    <small class="text-muted mt-1">
                                         <?= date(
                                             "F d, Y • g:i A",
                                             strtotime($highlight['created_at'])
                                         ); ?>
                                     </small>
                                 </div>
-                                <button type="button"
-                                        class="btn-close"
-                                        data-bs-dismiss="modal"></button>
                             </div>
                             <!-- Body -->
                             <div class="modal-body pt-3">
@@ -162,7 +167,7 @@ $highlights = $highlightStmt->get_result();
                             <!-- Footer -->
                             <div class="modal-footer border-0 pt-0">
                                 <button type="button"
-                                        class="btn btn-light rounded-pill px-4"
+                                        class="btn btn-light rounded-pill border px-4"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
@@ -174,8 +179,8 @@ $highlights = $highlightStmt->get_result();
                 <div class="modal fade"
                      id="editHighlightModal<?= $highlight['id']; ?>"
                      tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 p-2">
                             <form action="process_edit_highlight.php"
                                   method="POST"
                                   data-loading-form>
@@ -185,13 +190,13 @@ $highlights = $highlightStmt->get_result();
                                 <input type="hidden"
                                        name="topic_id"
                                        value="<?= $topic['id']; ?>">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fw-bold">
+                                <div class="modal-header border-0">
+                                    <div class="modal-icon">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </div>
+                                    <h5 class="modal-title fw-bold ms-1">
                                         Edit Highlight
                                     </h5>
-                                    <button type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label class="form-label fw-semibold">
@@ -202,14 +207,14 @@ $highlights = $highlightStmt->get_result();
                                               rows="5"
                                               required><?= htmlspecialchars($highlight['content']); ?></textarea>
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer border-0">
                                     <button type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-light rounded-pill border"
                                             data-bs-dismiss="modal">
                                         Cancel
                                     </button>
                                     <button type="submit"
-                                            class="btn btn-primary"
+                                            class="btn btn-primary rounded-pill"
                                             data-loading-button>
                                         <span class="btn-text">
                                             Save Changes

@@ -132,8 +132,8 @@ $questions = $questionStmt->get_result();
                 <div class="modal fade"
                      id="editQuestionModal<?= $question['id']; ?>"
                      tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 p-2">
                             <form action="process_edit_question.php"
                                   method="POST"
                                   data-loading-form>
@@ -143,13 +143,13 @@ $questions = $questionStmt->get_result();
                                 <input type="hidden"
                                        name="topic_id"
                                        value="<?= $topic['id']; ?>">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fw-bold">
+                                <div class="modal-header border-0">
+                                    <div class="modal-icon">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </div>
+                                    <h5 class="modal-title fw-bold ms-1">
                                         Edit Question
                                     </h5>
-                                    <button type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -171,14 +171,14 @@ $questions = $questionStmt->get_result();
                                                   required><?= htmlspecialchars($question['answer']); ?></textarea>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer border-0">
                                     <button type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-light rounded-pill border"
                                             data-bs-dismiss="modal">
                                         Cancel
                                     </button>
                                     <button type="submit"
-                                            class="btn btn-primary"
+                                            class="btn btn-primary rounded-pill"
                                             data-loading-button>
                                         <span class="btn-text">
                                                 Save Changes
@@ -196,20 +196,24 @@ $questions = $questionStmt->get_result();
                     id="viewAnswerModal<?= $question['id']; ?>"
                     tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content border-0 shadow-lg rounded-4">
+                        <div class="modal-content border-0 shadow-lg rounded-4 p-2">
                             <!-- Header -->
                             <div class="modal-header border-0 pb-0">
-                                <div>
-                                    <h5 class="modal-title fw-bold mb-1">
-                                        Practice Question
-                                    </h5>
-                                    <small class="text-muted">
+                                <div class="d-flex flex-column">
+                                    <!-- Icon + Title -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="modal-icon">
+                                            <i class="bi bi-patch-question"></i>
+                                        </div>
+                                        <h5 class="modal-title fw-bold mb-0">
+                                            Practice Question
+                                        </h5>
+                                    </div>
+                                    <!-- Subtitle below -->
+                                    <small class="text-muted mt-1">
                                         Review your answer
                                     </small>
                                 </div>
-                                <button type="button"
-                                        class="btn-close"
-                                        data-bs-dismiss="modal"></button>
                             </div>
                             <!-- Body -->
                             <div class="modal-body pt-3">

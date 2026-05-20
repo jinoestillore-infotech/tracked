@@ -18,8 +18,8 @@ include '../includes/header.php';
             TrackEd
         </a>
         <div class="ms-auto">
-            <a href="../auth/logout.php" class="btn btn-outline-light btn-sm">
-                Logout
+            <a href="../auth/logout.php" class="btn btn-outline-light btn-sm rounded-5 border border-2 me-2" title="Logout">
+                <i class="bi bi-box-arrow-right text-danger fw-bold"></i>
             </a>
         </div>
     </div>
@@ -54,11 +54,11 @@ include '../includes/header.php';
                 </div>
             </div>
             <div class="d-flex gap-2 flex-wrap">
-                <a href="profile.php" class="btn btn-sm btn-glow">
+                <a href="" class="btn btn-sm btn-glow">
                     <i class="bi bi-pencil-square me-1"></i>
                     Edit Profile
                 </a>
-                <a href="settings.php" class="btn btn-sm btn-outline-glow">
+                <a href="" class="btn btn-sm btn-outline-glow">
                     <i class="bi bi-gear me-1"></i>
                     Settings
                 </a>

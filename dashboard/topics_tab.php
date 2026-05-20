@@ -138,8 +138,8 @@ $topics = $stmt->get_result();
                 <div class="modal fade"
                     id="editTopicModal<?= $topic['id']; ?>"
                     tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 p-2">
                             <form action="process_edit_topic.php"
                                 method="POST">
                                 <input type="hidden"
@@ -148,8 +148,11 @@ $topics = $stmt->get_result();
                                 <input type="hidden"
                                     name="schedule_id"
                                     value="<?= $subject['id']; ?>">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fw-bold">
+                                <div class="modal-header border-0">
+                                    <div class="modal-icon">
+                                            <i class="bi bi-pencil-square"></i>
+                                    </div>
+                                    <h5 class="modal-title fw-bold ms-1">
                                         Edit Topic
                                     </h5>
                                     <button type="button"
@@ -199,14 +202,14 @@ $topics = $stmt->get_result();
                                         </select>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer border-0">
                                     <button type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-light rounded-pill border"
                                             data-bs-dismiss="modal">
                                         Cancel
                                     </button>
                                     <button type="submit"
-                                            class="btn btn-primary">
+                                            class="btn btn-primary rounded-pill">
                                         Save Changes
                                     </button>
                                 </div>

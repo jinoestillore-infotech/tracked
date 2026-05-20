@@ -100,14 +100,16 @@
                     </div>
                 </div>
                 <div class="modal fade" id="editNote<?= $note['id']; ?>" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content border-0">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 p-2">
                             <form action="process_edit_note.php" method="POST" data-loading-form>
                                 <input type="hidden" name="id" value="<?= $note['id']; ?>">
                                 <input type="hidden" name="schedule_id" value="<?= $subject['id']; ?>">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fw-bold">Edit Note</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                <div class="modal-header border-0">
+                                    <div class="modal-icon">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </div>
+                                    <h5 class="modal-title fw-bold ms-1">Edit Note</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -127,11 +129,11 @@
                                                 required><?= htmlspecialchars($note['content']); ?></textarea>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                                <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-light rounded-pill border" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
-                                    <button type="submit" class="btn btn-primary" data-loading-button>
+                                    <button type="submit" class="btn btn-primary rounded-pill" data-loading-button>
                                         <span class="btn-text">
                                             Update Note
                                         </span>
@@ -144,21 +146,26 @@
                 </div>
                 <div class="modal fade" id="viewNote<?= $note['id']; ?>" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content border-0 shadow-lg rounded-4">
+                        <div class="modal-content border-0 shadow-lg rounded-4 p-2">
                             <!-- Header -->
                             <div class="modal-header border-0">
-                                <div>
-                                    <h5 class="modal-title fw-bold mb-1 text-break">
-                                        <?= htmlspecialchars($note['title']); ?>
-                                    </h5>
-                                    <small class="text-muted">
-                                        Created: <?= $note['created_at']; ?>
+                                <div class="d-flex flex-column">
+                                    <!-- Icon + Title -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="modal-icon">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <h5 class="modal-title fw-bold mb-0 text-break">
+                                            <?= htmlspecialchars($note['title']); ?>
+                                        </h5>
+                                    </div>
+                                    <!-- Date below -->
+                                    <small class="text-muted mt-1 ms-1">
+                                        <?= $note['created_at']; ?>
                                     </small>
                                 </div>
-                                <button type="button"
-                                        class="btn-close"
-                                        data-bs-dismiss="modal"></button>
                             </div>
+
                             <!-- Body -->
                             <div class="modal-body">
                                 <div class="p-3 rounded-3 bg-light text-secondary mb-2 overflow-auto" style="max-height: 200px;">
@@ -170,7 +177,7 @@
                             <!-- Footer -->
                             <div class="modal-footer border-0">
                                 <button type="button"
-                                        class="btn btn-light rounded-pill px-3"
+                                        class="btn btn-light rounded-pill px-3 border"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>

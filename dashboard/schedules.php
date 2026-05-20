@@ -36,7 +36,6 @@ include '../includes/header.php';
                 <button class="btn btn-light fw-semibold rounded-pill px-4"
                         data-bs-toggle="modal"
                         data-bs-target="#addDayModal">
-
                     <i class="bi bi-plus-lg"></i>
                     Add Day
                 </button>
@@ -164,16 +163,14 @@ include '../includes/header.php';
 
 <!-- Add Day Modal -->
 <div class="modal fade" id="addDayModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-2">
             <form action="process_add_day.php" method="POST">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
-                        Add Schedule Day
-                    </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
+                <div class="modal-header border-0">
+                    <div class="schedule-icon">
+                        <i class="bi bi-calendar2-week fs-1"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">Add Schedule Days</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -195,14 +192,14 @@ include '../includes/header.php';
                     </div>
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light border rounded-pill"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary">
+                            class="btn btn-primary rounded-pill">
                         Add Day
                     </button>
                 </div>

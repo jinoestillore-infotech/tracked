@@ -75,13 +75,15 @@ include '../includes/header.php';
 </div>
 
 <div class="modal fade" id="addNoteModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_note.php" method="POST" data-loading-form>
                 <input type="hidden" name="schedule_id" value="<?= $subject['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">Add Note</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-journal-plus"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">Add Note</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -94,11 +96,11 @@ include '../includes/header.php';
                         <textarea name="content" class="form-control" rows="5" required></textarea>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light rounded-pill border" data-bs-dismiss="modal">
                         Cancel
                     </button>
-                    <button type="submit" class="btn btn-primary" data-loading-button>
+                    <button type="submit" class="btn btn-primary rounded-pill" data-loading-button>
                         <span class="btn-text">
                             Save Note
                         </span>
@@ -111,20 +113,19 @@ include '../includes/header.php';
 </div>
 
 <div class="modal fade" id="addTaskModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_task.php" method="POST" data-loading-form>
                 <input type="hidden"
                        name="schedule_id"
                        value="<?= $subject['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-list-task"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Task
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
-
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -156,14 +157,14 @@ include '../includes/header.php';
                                required>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                             Save Task
@@ -176,19 +177,19 @@ include '../includes/header.php';
     </div>
 </div>
 <div class="modal fade" id="addTopicModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_topic.php" method="POST" data-loading-form>
                 <input type="hidden"
                        name="schedule_id"
                        value="<?= $subject['id']; ?>">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-folder-plus"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Topic
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Topic Name -->
@@ -231,14 +232,14 @@ include '../includes/header.php';
                         </select>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                                 Save Topic

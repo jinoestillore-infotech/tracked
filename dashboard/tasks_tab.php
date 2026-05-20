@@ -188,8 +188,8 @@ $tasks = $stmt->get_result();
                     <div class="modal fade"
                         id="editTask<?= $task['id']; ?>"
                         tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content border-0">
+                        <div class="modal-dialog modal-dialog-center">
+                            <div class="modal-content border-0 p-2">
                                 <form action="process_edit_task.php" method="POST" data-loading-form>
                                     <input type="hidden"
                                         name="id"
@@ -199,13 +199,13 @@ $tasks = $stmt->get_result();
                                         name="schedule_id"
                                         value="<?= $subject['id']; ?>">
 
-                                    <div class="modal-header">
-                                        <h5 class="modal-title fw-bold">
+                                    <div class="modal-header border-0">
+                                        <div class="modal-icon">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </div>
+                                        <h5 class="modal-title fw-bold ms-1">
                                             Edit Task
                                         </h5>
-                                        <button type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="mb-3">
@@ -239,14 +239,14 @@ $tasks = $stmt->get_result();
                                                 required>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer border-0">
                                         <button type="button"
-                                                class="btn btn-light"
+                                                class="btn btn-light rounded-pill border"
                                                 data-bs-dismiss="modal">
                                             Cancel
                                         </button>
                                         <button type="submit"
-                                                class="btn btn-primary"
+                                                class="btn btn-primary rounded-pill"
                                                 data-loading-button>
                                             <span class="btn-text">
                                                 Update Task
