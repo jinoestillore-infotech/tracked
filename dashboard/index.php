@@ -18,7 +18,7 @@ include '../includes/header.php';
             TrackEd
         </a>
         <div class="ms-auto">
-            <a href="../auth/logout.php" class="btn btn-outline-light btn-sm rounded-5 border border-2 me-2" title="Logout">
+            <a href="../auth/logout.php" class="btn btn-sm rounded-5 border border-danger border-2 me-2" title="Logout">
                 <i class="bi bi-box-arrow-right text-danger fw-bold"></i>
             </a>
         </div>

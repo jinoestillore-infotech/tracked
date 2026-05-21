@@ -20,6 +20,7 @@
     background: linear-gradient(135deg, #0f172a, #1e293b) !important;
     border-radius: 20px;
     transition: 0.2s ease;
+        cursor:pointer;
 }
 
 .subject-card:hover{

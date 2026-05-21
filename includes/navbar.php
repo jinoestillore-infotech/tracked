@@ -21,7 +21,7 @@
             </li>
             <li class="nav-item ms-lg-3">
                 <a href="auth/login.php"
-                   class="btn btn-outline-secondary btn-sm text-light">
+                   class="btn btn-light btn-sm text-dark border-0">
                     Login
                 </a>
             </li>

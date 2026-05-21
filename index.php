@@ -22,7 +22,7 @@ include 'includes/header.php';
             <li class="nav-item"><a class="nav-link" href="features.php">Features</a></li>
             <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
             <li class="nav-item ms-lg-3">
-                <a href="auth/login.php" class="btn btn-outline-secondary btn-sm text-light">Login</a>
+                <a href="auth/login.php" class="btn btn-light btn-sm text-dark border-0">Login</a>
             </li>
             <li class="nav-item ms-lg-2">
                 <a href="auth/register.php" class="btn btn-primary btn-sm btn-primary-custom">Get Started</a>
