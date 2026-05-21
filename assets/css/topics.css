@@ -1,0 +1,105 @@
+.welcome-card{
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+.welcome-card .btn-light{
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    transition: 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.welcome-card .btn-light:hover{
+    background: #fff;
+    color: #4f46e5;
+}
+
+/* Add Day Button */
+.welcome-card .btn-light.fw-semibold{
+    background: #fff;
+    color: #4f46e5;
+    border: none;
+}
+
+.welcome-card .btn-light.fw-semibold:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+
+.topic-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    transition: 0.2s ease;
+    border-radius: 18px;
+}
+
+.topics-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    transition: 0.2s ease;
+    border-radius: 18px;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.topic-meta-box {
+    background: rgba(128, 128, 128, 0.315);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 12px;
+}
+
+.topic-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.topic-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.mastery-badge,
+.status-badge {
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.mastered {
+    background: rgba(34, 184, 114, 0.336);
+    color: #1cda81;
+}
+
+.studying {
+    background: rgba(255, 193, 7, 0.185);
+    color: #f8931f;
+}
+
+.not-started {
+    background: rgba(108, 117, 125, 0.336);
+    color: #b7c1ca;
+}
+
+.upcoming {
+    background: rgba(13,110,253,0.12);
+    color: #0d6efd;
+}
+
+.ongoing {
+    background: rgba(255,193,7,0.12);
+    color: #d97706;
+}
+
+.completed {
+    background: rgba(25,135,84,0.12);
+    color: #198754;
+}

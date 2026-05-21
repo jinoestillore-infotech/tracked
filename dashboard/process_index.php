@@ -26,4 +26,26 @@ $data = $result->fetch_assoc();
 
 $total_subjects = $data['total_subjects'];
 
+/* Total Topics */
+$topicStmt = $conn->prepare("
+    SELECT COUNT(st.id) AS total_topics
+
+    FROM subject_topics st
+
+    INNER JOIN schedules s
+        ON st.schedule_id = s.id
+
+    INNER JOIN schedule_days d
+        ON s.day_id = d.id
+
+    WHERE d.user_id = ?
+");
+
+$topicStmt->bind_param("i", $user_id);
+$topicStmt->execute();
+
+$topicResult = $topicStmt->get_result();
+$topicData = $topicResult->fetch_assoc();
+
+$total_topics = $topicData['total_topics'];
 ?>

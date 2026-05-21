@@ -1,6 +1,11 @@
 <?php
 include 'process_index.php';
 
+$success = $_SESSION['success'] ?? '';
+$error = $_SESSION['error'] ?? '';
+
+unset($_SESSION['success'], $_SESSION['error']);
+
 $user = $_SESSION['user'];
 $pageTitle = $user['fullname'] . " - Dashboard";
 include '../includes/header.php';
@@ -26,7 +31,7 @@ include '../includes/header.php';
 </nav>
 <div class="container py-4">
 <div class="row mb-4">
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-7">
         <div class="welcome-card">
             <div class="row g-4">
                 <div class="col-12 col-lg-8">
@@ -41,27 +46,35 @@ include '../includes/header.php';
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-5">
         <div class="user-card">
             <div class="d-flex align-items-center justify-content-between mb-0">
                 <div>
-                    <h5 class="fw-bold text-white mb-0">
+                    <h5 class="fw-bold text-white mb-1 m-0 p-0">
                         <?= htmlspecialchars($user['fullname']) ?>
                     </h5>
+                    <a href="edit_profile.php" class="btn btn-sm btn-glow">
+                        <i class="bi bi-pencil-square me-1"></i>
+                        Edit Profile
+                    </a>
+
+                    <a href="" class="btn btn-sm btn-outline-glow">
+                        <i class="bi bi-gear me-1"></i>
+                        Settings
+                    </a>
                 </div>
-                <div class="user-icon">
-                    <i class="bi bi-person-circle"></i>
+
+                <div class="user-icon m-0">
+                    <?php if (!empty($user['profile_picture'])): ?>
+                        <img 
+                            src="../uploads/profile/<?= htmlspecialchars($user['profile_picture']) ?>" 
+                            alt="Profile Picture"
+                            class="profile-img"
+                        >
+                    <?php else: ?>
+                        <i class="bi bi-person-circle"></i>
+                    <?php endif; ?>
                 </div>
-            </div>
-            <div class="d-flex gap-2 flex-wrap">
-                <a href="" class="btn btn-sm btn-glow">
-                    <i class="bi bi-pencil-square me-1"></i>
-                    Edit Profile
-                </a>
-                <a href="" class="btn btn-sm btn-outline-glow">
-                    <i class="bi bi-gear me-1"></i>
-                    Settings
-                </a>
             </div>
         </div>
     </div>
@@ -82,7 +95,7 @@ include '../includes/header.php';
                 <i class="bi bi-journal-text text-light"></i>
                 Subjects
             </a>
-            <a href="#" class="nav-link-custom">
+            <a href="topics.php" class="nav-link-custom">
                 <i class="bi bi-check2-square text-light"></i>
                 Topics
             </a>
@@ -114,6 +127,19 @@ include '../includes/header.php';
         <div class="col-12 col-md-6">
             <div class="dashboard-card">
                 <div class="stat-icon">
+                    <i class="bi bi-check2-square"></i>
+                </div>
+                <h3 class="fw-bold mb-1">
+                    <?= $total_topics ?? 0; ?>
+                </h3>
+                <p class="text-secondary mb-0">
+                    Total Topics
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="dashboard-card">
+                <div class="stat-icon">
                     <i class="bi bi-bar-chart"></i>
                 </div>
                 <h3 class="fw-bold mb-1">0%</h3>
@@ -122,20 +148,22 @@ include '../includes/header.php';
                 </p>
             </div>
         </div>
-        <div class="col-12">
-            <div class="dashboard-card">
-                <div class="stat-icon">
-                    <i class="bi bi-calendar-check"></i>
-                </div>
-                <h3 class="fw-bold mb-1">0</h3>
-                <p class="text-secondary mb-0">
-                    Study Plans
-                </p>
-            </div>
-        </div>
     </div>
     </div>
 </div>
 </div>
+<div id="toast-container"></div>
+<script src="../assets/js/toast.js"></script>
+<?php if (!empty($success)): ?>
+<script>
+showToast("<?= htmlspecialchars($success) ?>", "success");
+</script>
+<?php endif; ?>
+
+<?php if (!empty($error)): ?>
+<script>
+showToast("<?= htmlspecialchars($error) ?>", "error");
+</script>
+<?php endif; ?>
 </body>
 </html>
