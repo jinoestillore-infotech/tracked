@@ -4,13 +4,24 @@ require 'process_edit_profile.php';
 $pageTitle = "Edit Profile";
 include '../includes/header.php';
 ?>
+<style>
+    .profile-icon {
+    border-radius: 0;
+    background: rgba(255,255,255,0.08);
+    color: #a5b4fc;
+    }
 
+    .profile-icon i {
+        font-size: 4rem;
+    }
+
+</style>
 <div class="container pt-3 pb-4">
     <div class="row justify-content-center align-items-center">
         <div class="col-lg-5">
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                 <!-- HEADER -->
-                <div class="text-dark p-4">
+                <div class="text-dark p-4 m-0">
                     <h3 class="fw-bold mb-1">
                         Edit Profile
                     </h3>
@@ -19,16 +30,20 @@ include '../includes/header.php';
                     </p>
                 </div>
                 <!-- BODY -->
-                <div class="card-body p-4 p-lg-5">
+                <div class="card-body p-4 p-lg-5 pt-0 mt-0">
                     <!-- PROFILE PREVIEW -->
-                    <div class="text-center mb-4">
-                        <img
-                            src="../uploads/profile/<?= htmlspecialchars($user['profile_picture']) ?>"
-                            class="rounded-circle shadow-sm border"
-                            width="120"
-                            height="120"
-                            style="object-fit: cover;"
-                        >
+                    <div class="text-center mb-2 profile-icon p-0 m-0">
+                        <?php if (!empty($user['profile_picture'])): ?>
+                            <img
+                                src="../uploads/profile/<?= htmlspecialchars($user['profile_picture']) ?>"
+                                class="rounded-circle shadow-sm border"
+                                width="120"
+                                height="120"
+                                style="object-fit: cover;"
+                            >
+                        <?php else: ?>
+                            <i class="bi bi-person-circle"></i>
+                        <?php endif; ?>
                     </div>
                     <form method="POST" enctype="multipart/form-data">
                         <!-- FULL NAME -->
