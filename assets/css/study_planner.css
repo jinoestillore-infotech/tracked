@@ -1,0 +1,89 @@
+/* Schedule Header Card */
+.welcome-card{
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+/* Back Button */
+.welcome-card .btn-light{
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    transition: 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.welcome-card .btn-light:hover{
+    background: #fff;
+    color: #4f46e5;
+}
+
+/* Add Day Button */
+.welcome-card .btn-light.fw-semibold{
+    background: #fff;
+    color: #4f46e5;
+    border: none;
+}
+
+.welcome-card .btn-light.fw-semibold:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.guide-card{
+    background: linear-gradient(135deg, #1e293b, #1d408a );
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.guide-step{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.guide-badge{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(79,70,229,0.35);
+}
+
+.subject-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    transition: 0.2s ease;
+    border-radius: 18px;
+}
+.subject-card:hover {
+    transform: translateY(-4px);
+}
+
+.subject-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    background: #f1f5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #4f46e5;
+}
+
+/* Subject Header Card */
+.subject-header {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+}

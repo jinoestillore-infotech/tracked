@@ -99,7 +99,7 @@ include '../includes/header.php';
                 <i class="bi bi-check2-square text-light"></i>
                 Topics
             </a>
-            <a href="#" class="nav-link-custom">
+            <a href="study_planner.php" class="nav-link-custom">
                 <i class="bi bi-calendar-event text-light"></i>
                 Study Planner
             </a>
