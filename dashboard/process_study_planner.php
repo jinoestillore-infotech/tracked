@@ -50,16 +50,28 @@ $topicsList = $topicsStmt->get_result();
 
 // FETCH STUDY PLANS
 $plansStmt = $conn->prepare("
-    SELECT *
-    FROM study_plans
-    WHERE user_id = ?
+    SELECT
+        sp.*,
+        s.subject_name,
+        s.subject_code,
+        st.topic_name
+    FROM study_plans sp
+
+    LEFT JOIN schedules s
+        ON sp.subject_id = s.id
+
+    LEFT JOIN subject_topics st
+        ON sp.topic_id = st.id
+
+    WHERE sp.user_id = ?
+
     ORDER BY
-        CASE status
+        CASE sp.status
             WHEN 'Pending' THEN 1
-            WHEN 'In Progress' THEN 2
+            WHEN 'Missed' THEN 2
             WHEN 'Completed' THEN 3
         END,
-        study_date ASC
+        sp.study_date ASC
 ");
 
 $plansStmt->bind_param("i", $user_id);
