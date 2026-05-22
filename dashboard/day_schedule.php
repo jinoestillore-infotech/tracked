@@ -208,7 +208,7 @@ include '../includes/header.php';
                                     <!-- Delete -->
                                     <a href="process_delete_subject.php?id=<?= $subject['id']; ?>&day_id=<?= $day_id; ?>"
                                     class="btn btn-outline-danger w-50 rounded-pill"
-                                    onclick="return confirm('Are you sure you want to delete this subject?')" data-loading-action>
+                                    onclick="return confirm('Are you sure you want to remove this subject?')">
                                     <span class="btn-text">
                                         <i class="bi bi-trash me-1"></i>
                                         Remove

@@ -1,5 +1,12 @@
 <?php
 session_start();
+$success = '';
+$error = '';
+
+// Check logout query
+if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+    $success = "Logged out successfully!";
+}
 
 $fieldErrors = $_SESSION['fieldErrors'] ?? [];
 $old = $_SESSION['old'] ?? [];
@@ -55,5 +62,18 @@ include '../includes/header.php';
         </p>
     </form>
 </div>
+<div id="toast-container"></div>
+<script src="../assets/js/toast.js"></script>
+<?php if (!empty($success)): ?>
+<script>
+showToast("<?= htmlspecialchars($success) ?>", "success");
+</script>
+<?php endif; ?>
+
+<?php if (!empty($error)): ?>
+<script>
+showToast("<?= htmlspecialchars($error) ?>", "error");
+</script>
+<?php endif; ?>
 </body>
 </html>
