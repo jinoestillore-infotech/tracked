@@ -141,7 +141,7 @@ include '../includes/header.php';
                                     <?= htmlspecialchars($topic['mastery_level']) ?>
                                 </span>
                                 <a
-                                    href="topic.php?id=<?= $topic['id'] ?>"
+                                    href="2-topic.php?id=<?= $topic['id'] ?>"
                                     class="btn btn-outline-primary btn-sm rounded-pill px-4"
                                 >
                                     Open Topic

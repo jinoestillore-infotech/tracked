@@ -82,7 +82,7 @@ include '../includes/header.php';
                                 type="submit"
                                 class="btn btn-primary px-4 rounded-3 w-100"
                             >
-                                Save Changes
+                                Save
                             </button>
                             <a
                                 href="index.php"
