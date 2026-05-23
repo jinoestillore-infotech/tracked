@@ -133,9 +133,7 @@ include '../includes/header.php';
             Add Plan
         </button>
     </div>
-
     <?php include 'study_stats.php'; ?>
-
     <?php include 'study_planner_tab.php'; ?>
 </div>
 
