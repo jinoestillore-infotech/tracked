@@ -30,6 +30,26 @@
                         </div>
                     </div>
                 </div>
+                <!-- Topics -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm subject-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="text-secondary small mb-1">
+                                        Total Topics
+                                    </p>
+                                    <h3 class="fw-bold text-info mb-0">
+                                        <?= $totalTopics; ?>
+                                    </h3>
+                                </div>
+                                <div class="subject-icon">
+                                    <i class="bi bi-book"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Tasks -->
                 <div class="col-6 col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm subject-card h-100">

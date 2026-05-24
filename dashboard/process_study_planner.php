@@ -26,7 +26,10 @@ $subjectsStmt = $conn->prepare("
 $subjectsStmt->bind_param("i", $user_id);
 $subjectsStmt->execute();
 
-$subjectsList = $subjectsStmt->get_result();
+$subjectsList =
+    $subjectsStmt
+    ->get_result()
+    ->fetch_all(MYSQLI_ASSOC);
 
 // FETCH TOPICS
 $topicsStmt = $conn->prepare("
@@ -46,7 +49,10 @@ $topicsStmt = $conn->prepare("
 $topicsStmt->bind_param("i", $user_id);
 $topicsStmt->execute();
 
-$topicsList = $topicsStmt->get_result();
+$topicsList =
+    $topicsStmt
+    ->get_result()
+    ->fetch_all(MYSQLI_ASSOC);
 
 // FETCH STUDY PLANS
 $plansStmt = $conn->prepare("

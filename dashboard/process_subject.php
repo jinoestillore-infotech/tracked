@@ -58,7 +58,21 @@ $totalNotes =
     ->get_result()
     ->fetch_assoc()['total_notes'];
 
+// TOTAL TOPICS
+$topicsQuery = $conn->prepare("
+    SELECT COUNT(*) AS total_topics
+    FROM subject_topics
+    WHERE schedule_id = ?
+");
 
+$topicsQuery->bind_param("i", $subject_id);
+$topicsQuery->execute();
+
+$totalTopics =
+    $topicsQuery
+    ->get_result()
+    ->fetch_assoc()['total_topics'];
+    
 // TOTAL TASKS
 $tasksQuery = $conn->prepare("
     SELECT COUNT(*) AS total_tasks

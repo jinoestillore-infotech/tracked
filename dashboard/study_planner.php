@@ -165,11 +165,11 @@ include '../includes/header.php';
                             <option value="">
                                 Select Subject
                             </option>
-                            <?php while ($subject = $subjectsList->fetch_assoc()): ?>
+                            <?php foreach ($subjectsList as $subject): ?>
                                 <option value="<?= $subject['id']; ?>">
                                     <?= htmlspecialchars($subject['subject_name']); ?>
                                 </option>
-                            <?php endwhile; ?>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <!-- TOPIC -->
@@ -184,13 +184,13 @@ include '../includes/header.php';
                             <option value="">
                                 Select Topic
                             </option>
-                            <?php while ($topic = $topicsList->fetch_assoc()): ?>
+                            <?php foreach ($topicsList as $topic): ?>
                                 <option value="<?= $topic['id']; ?>"
                                         data-subject="<?= $topic['schedule_id']; ?>"
                                         hidden>
                                     <?= htmlspecialchars($topic['topic_name']); ?>
                                 </option>
-                            <?php endwhile; ?>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <!-- DATE -->
@@ -271,6 +271,20 @@ showToast("<?= htmlspecialchars($success) ?>", "success");
 <script>
 showToast("<?= htmlspecialchars($error) ?>", "error");
 </script>
+<?php endif; ?>
+<?php if (isset($_SESSION['open_modal'])): ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const modal =
+        new bootstrap.Modal(
+            document.getElementById('addPlanModal')
+        );
+
+    modal.show();
+});
+</script>
+<?php unset($_SESSION['open_modal']); ?>
 <?php endif; ?>
 <script>
 function hideGuide() {

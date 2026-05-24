@@ -42,6 +42,75 @@ if ($start_time >= $end_time) {
     exit;
 }
 
+// CHECK CONFLICTING SCHEDULE
+$conflictStmt = $conn->prepare("
+    SELECT id
+    FROM study_plans
+    WHERE user_id = ?
+    AND topic_id = ?
+    AND study_date = ?
+    AND (
+        start_time < ?
+        AND end_time > ?
+    )
+");
+
+$conflictStmt->bind_param(
+    "iisss",
+    $user_id,
+    $topic_id,
+    $study_date,
+    $end_time,
+    $start_time
+);
+
+$conflictStmt->execute();
+
+$conflictResult =
+    $conflictStmt->get_result();
+
+if ($conflictResult->num_rows > 0) {
+
+    $_SESSION['error'] =
+        "This topic already has a conflicting study schedule.";
+    $_SESSION['open_modal'] = true;
+    header("Location: study_planner.php");
+    exit;
+}
+
+// CHECK FOR OVERLAPPING STUDY SESSIONS
+$overlapStmt = $conn->prepare("
+    SELECT id
+    FROM study_plans
+    WHERE user_id = ?
+    AND study_date = ?
+    AND (
+        start_time < ?
+        AND end_time > ?
+    )
+");
+
+$overlapStmt->bind_param(
+    "isss",
+    $user_id,
+    $study_date,
+    $end_time,
+    $start_time
+);
+
+$overlapStmt->execute();
+
+$overlapResult = $overlapStmt->get_result();
+
+if ($overlapResult->num_rows > 0) {
+
+    $_SESSION['error'] =
+        "You already have another study plan during this time.";
+    $_SESSION['open_modal'] = true;
+    header("Location: study_planner.php");
+    exit;
+}
+
 // INSERT
 $stmt = $conn->prepare("
     INSERT INTO study_plans
