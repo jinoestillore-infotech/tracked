@@ -138,7 +138,7 @@
                     </div>
                     <!-- EDIT PLAN MODAL -->
                     <div class="modal fade" id="editPlanModal<?= $plan['id']; ?>" tabindex="-1">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered mt-2">
                             <div class="modal-content border-0">
                                 <form action="process_edit_plan.php"
                                     method="POST"
@@ -146,13 +146,13 @@
                                     <input type="hidden"
                                         name="id"
                                         value="<?= $plan['id']; ?>">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title fw-bold">
+                                    <div class="modal-header border-0">
+                                        <div class="modal-icon">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </div>
+                                        <h5 class="modal-title fw-bold ms-1">
                                             Edit Study Plan
                                         </h5>
-                                        <button type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
                                         <!-- SUBJECT -->
@@ -221,7 +221,7 @@
                                             </div>
                                         </div>
                                         <!-- NOTES -->
-                                        <div class="mb-3 mt-3">
+                                        <div class="mb-1 mt-3">
                                             <label class="form-label fw-semibold">
                                                 Notes
                                             </label>
@@ -230,14 +230,14 @@
                                                     rows="3"><?= htmlspecialchars($plan['notes'] ?? '') ?></textarea>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer border-0">
                                         <button type="button"
-                                                class="btn btn-light"
+                                                class="btn btn-light rounded-pill border"
                                                 data-bs-dismiss="modal">
                                             Cancel
                                         </button>
                                         <button type="submit"
-                                                class="btn btn-primary"
+                                                class="btn btn-primary rounded-pill"
                                                 data-loading-button>
                                             Save Changes
                                         </button>

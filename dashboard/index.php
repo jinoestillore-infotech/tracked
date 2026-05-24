@@ -51,14 +51,16 @@ include '../includes/header.php';
             <div class="d-flex align-items-center justify-content-between mb-0">
                 <div>
                     <h5 class="fw-bold text-white mb-1 m-0 p-0">
-                        <?= htmlspecialchars($user['fullname']) ?>
+                        <?= htmlspecialchars($user['fullname']) ?>             
+                        <i class="text-success bi bi-check-circle-fill">
+                        </i>
                     </h5>
                     <a href="edit_profile.php" class="btn btn-sm btn-glow">
                         <i class="bi bi-pencil-square me-1"></i>
                         Edit Profile
                     </a>
 
-                    <a href="" class="btn btn-sm btn-outline-glow">
+                    <a href="settings.php" class="btn btn-sm btn-outline-glow">
                         <i class="bi bi-gear me-1"></i>
                         Settings
                     </a>
@@ -111,8 +113,24 @@ include '../includes/header.php';
     </div>
     </div>
 
+    <!-- STATUS -->
     <div class="col-12 col-lg-8">
     <div class="row g-4">
+        <div class="col-12 col-md-6">
+            <div class="dashboard-card">
+                <div class="stat-icon">
+                    <i class="bi bi-calendar-day"></i>
+                </div>
+
+                <h3 class="mb-1 fw-bold">
+                    <?= date('l'); ?>: <span class="text-danger"><?= $today_subjects; ?></span>
+                </h3>
+
+                <p class="text-secondary mb-0">
+                    Today's Subjects
+                </p>
+            </div>
+        </div>
         <div class="col-12 col-md-6">
             <div class="dashboard-card">
                 <div class="stat-icon">

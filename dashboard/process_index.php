@@ -48,4 +48,33 @@ $topicResult = $topicStmt->get_result();
 $topicData = $topicResult->fetch_assoc();
 
 $total_topics = $topicData['total_topics'];
+
+/* Today Subject */
+$currentDay = date('l');
+
+$todayStmt = $conn->prepare("
+    SELECT COUNT(s.id) AS today_subjects
+
+    FROM schedules s
+
+    INNER JOIN schedule_days d
+        ON s.day_id = d.id
+
+    WHERE d.user_id = ?
+    AND d.day_name = ?
+");
+
+$todayStmt->bind_param(
+    "is",
+    $user_id,
+    $currentDay
+);
+
+$todayStmt->execute();
+
+$todayResult = $todayStmt->get_result();
+$todayData = $todayResult->fetch_assoc();
+
+$today_subjects =
+    $todayData['today_subjects'] ?? 0;
 ?>

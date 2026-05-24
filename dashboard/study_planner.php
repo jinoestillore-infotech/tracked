@@ -89,10 +89,10 @@ include '../includes/header.php';
                     </div>
                     <div>
                         <h6 class="fw-semibold text-light mb-1">
-                            Track Progress
+                            Complete Plans On Time
                         </h6>
                         <small class="text-light opacity-50">
-                            Monitor pending and completed study plans.
+                            Study plans can only be completed during their scheduled time.
                         </small>
                     </div>
                 </div>
@@ -108,7 +108,7 @@ include '../includes/header.php';
                             Stay Consistent
                         </h6>
                         <small class="text-light opacity-50">
-                            Build better study habits and avoid missing deadlines.
+                            Monitor pending and completed study plans. Avoid missing deadlines.
                         </small>
                     </div>
                 </div>
@@ -122,9 +122,6 @@ include '../includes/header.php';
             <h5 class="fw-bold text-dark mb-1">
                 Your Study Plans
             </h5>
-            <small class="text-light bg-success px-2 py-1 rounded-pill">
-                You have <?= $plans->num_rows; ?> plans
-            </small>
         </div>
         <button class="btn btn-primary btn-sm rounded-pill px-4"
                 data-bs-toggle="modal"
@@ -139,18 +136,18 @@ include '../includes/header.php';
 
 <!-- ADD PLAN MODAL -->
 <div class="modal fade" id="addPlanModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0">
+    <div class="modal-dialog modal-dialog-centered mt-2">
+        <div class="modal-content border-0 p-2">
             <form action="process_add_plan.php"
                   method="POST"
                   data-loading-form>
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">
+                <div class="modal-header border-0">
+                    <div class="modal-icon">
+                        <i class="bi bi-calendar-plus"></i>
+                    </div>
+                    <h5 class="modal-title fw-bold ms-1">
                         Add Study Plan
                     </h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <!-- SUBJECT -->
@@ -204,18 +201,8 @@ include '../includes/header.php';
                             min="<?= date('Y-m-d'); ?>"
                             required>
                     </div>
-                    <!-- NOTES -->
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">
-                            Notes
-                        </label>
-                        <textarea name="notes"
-                                class="form-control"
-                                rows="3"
-                                placeholder="Optional notes..."></textarea>
-                    </div>
                     <!-- START TIME -->
-                    <div class="row g-3">
+                    <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">
                                 Start Time
@@ -235,16 +222,26 @@ include '../includes/header.php';
                                 required>
                         </div>
                     </div>
+                    <!-- NOTES -->
+                    <div class="mb-1">
+                        <label class="form-label fw-semibold">
+                            Notes
+                        </label>
+                        <textarea name="notes"
+                                class="form-control"
+                                rows="3"
+                                placeholder="Optional notes..."></textarea>
+                    </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0 mt-0 pt-0">
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-light rounded-pill border"
                             data-bs-dismiss="modal">
 
                         Cancel
                     </button>
                     <button type="submit"
-                            class="btn btn-primary"
+                            class="btn btn-primary rounded-pill"
                             data-loading-button>
                         <span class="btn-text">
                             Save Plan
