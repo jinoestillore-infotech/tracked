@@ -6,6 +6,8 @@ $error = $_SESSION['error'] ?? '';
 
 unset($_SESSION['success'], $_SESSION['error']);
 
+date_default_timezone_set('Asia/Manila');
+
 $user = $_SESSION['user'];
 $pageTitle = $user['fullname'] . " - Dashboard";
 include '../includes/header.php';
