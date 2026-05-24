@@ -85,13 +85,16 @@
                                             <?= htmlspecialchars($plan['status']); ?>
                                         </span>
                                     </div>
+                                    <div class="text-light bg-secondary py-2 px-3 rounded-2 mt-2">
+                                        <?= htmlspecialchars($plan['notes'] ?? '') ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- FOOTER -->
                         <div class="card-footer border-0 bg-transparent pt-0 mt-2">
-                            <div class="d-flex flex-wrap gap-2 justify-content-end">
+                            <div class="d-flex flex-wrap gap-2 justify-content-end mb-2">
                                 <?php if ($plan['status'] !== 'Completed'): ?>
                                     <a href="process_complete_plan.php?id=<?= $plan['id']; ?>"
                                     class="btn btn-success btn-sm rounded-pill px-3">
@@ -113,6 +116,116 @@
                                 onclick="return confirm('Delete this study plan?')">
                                     <i class="bi bi-trash"></i>
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- EDIT PLAN MODAL -->
+                    <div class="modal fade" id="editPlanModal<?= $plan['id']; ?>" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content border-0">
+                                <form action="process_edit_plan.php"
+                                    method="POST"
+                                    data-loading-form>
+                                    <input type="hidden"
+                                        name="id"
+                                        value="<?= $plan['id']; ?>">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold">
+                                            Edit Study Plan
+                                        </h5>
+                                        <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- SUBJECT -->
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">
+                                                Subject
+                                            </label>
+                                            <select name="subject_id"
+                                                    class="form-select"
+                                                    required>
+                                                <option value="<?= $plan['subject_id']; ?>">
+                                                    <?= htmlspecialchars($plan['subject_name']); ?>
+                                                </option>
+                                                <?php foreach ($subjectsList as $subject): ?>
+                                                    <option value="<?= $subject['id']; ?>">
+                                                        <?= htmlspecialchars($subject['subject_name']); ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <!-- TOPIC -->
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">
+                                                Topic
+                                            </label>
+                                            <select name="topic_id"
+                                                    class="form-select">
+                                                <option value="<?= $plan['topic_id']; ?>">
+                                                    <?= htmlspecialchars($plan['topic_name'] ?? 'Select Topic'); ?>
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <!-- DATE -->
+                                        <div class="mb-3">
+                                            <label class="form-label fw-semibold">
+                                                Study Date
+                                            </label>
+                                            <input type="date"
+                                                name="study_date"
+                                                class="form-control"
+                                                value="<?= $plan['study_date']; ?>"
+                                                required>
+
+                                        </div>
+                                        <!-- TIME -->
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-semibold">
+                                                    Start Time
+                                                </label>
+                                                <input type="time"
+                                                    name="start_time"
+                                                    class="form-control"
+                                                    value="<?= $plan['start_time']; ?>"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-semibold">
+                                                    End Time
+                                                </label>
+                                                <input type="time"
+                                                    name="end_time"
+                                                    class="form-control"
+                                                    value="<?= $plan['end_time']; ?>"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <!-- NOTES -->
+                                        <div class="mb-3 mt-3">
+                                            <label class="form-label fw-semibold">
+                                                Notes
+                                            </label>
+                                            <textarea name="notes"
+                                                    class="form-control"
+                                                    rows="3"><?= htmlspecialchars($plan['notes'] ?? '') ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button"
+                                                class="btn btn-light"
+                                                data-bs-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button type="submit"
+                                                class="btn btn-primary"
+                                                data-loading-button>
+                                            Save Changes
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
