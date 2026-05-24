@@ -141,7 +141,7 @@ include '../includes/header.php';
                                     <?= htmlspecialchars($topic['mastery_level']) ?>
                                 </span>
                                 <a
-                                    href="2-topic.php?id=<?= $topic['id'] ?>"
+                                    href="topic.php?id=<?= $topic['id'] ?>"
                                     class="btn btn-outline-primary btn-sm rounded-pill px-4"
                                 >
                                     Open Topic
@@ -151,6 +151,7 @@ include '../includes/header.php';
                     </div>
                 </div>
             <?php endwhile; ?>
+            <?php include 'topics_pagination.php'; ?>
         <?php else: ?>
             <div class="col-12">
                 <div class="card border-0 shadow-sm rounded-4">

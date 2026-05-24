@@ -11,7 +11,7 @@ $success = $_SESSION['success'] ?? '';
 $error = $_SESSION['error'] ?? '';
 
 unset($_SESSION['success'], $_SESSION['error']);
-$user = $_SESSION['user'];
+$user_id = $_SESSION['user']['id'];
 
 $stmt = $conn->prepare("
     SELECT security_question
@@ -19,7 +19,7 @@ $stmt = $conn->prepare("
     WHERE id = ?
 ");
 
-$stmt->bind_param("i", $user['id']);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 
 $userSecurity =

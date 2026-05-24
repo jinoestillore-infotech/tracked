@@ -10,6 +10,55 @@ if (!isset($_SESSION['user'])) {
 // Get total subjects of the logged-in user
 $user_id = $_SESSION['user']['id'];
 
+/* FETCH LATEST USER DATA */
+$userStmt = $conn->prepare("
+    SELECT *
+    FROM users
+    WHERE id = ?
+");
+
+$userStmt->bind_param(
+    "i",
+    $user_id
+);
+
+$userStmt->execute();
+
+$user = $userStmt->get_result()->fetch_assoc();
+
+$current_streak = $user['current_streak'] ?? 0;
+
+if ($current_streak >= 100) {
+
+    $streak_rank = "Legendary Learner";
+    $streak_icon = "bi-fire";
+    $streak_color = "text-danger";
+
+} elseif ($current_streak >= 30) {
+
+    $streak_rank = "Gold Scholar";
+    $streak_icon = "bi-trophy";
+    $streak_color = "text-warning";
+
+} elseif ($current_streak >= 7) {
+
+    $streak_rank = "Silver Scholar";
+    $streak_icon = "bi-patch-check";
+    $streak_color = "text-info";
+
+} elseif ($current_streak >= 3) {
+
+    $streak_rank = "Bronze Scholar";
+    $streak_icon = "bi-award";
+    $streak_color = "text-warning";
+
+} else {
+
+    $streak_rank = "Beginner";
+    $streak_icon = "bi-stars";
+    $streak_color = "text-secondary";
+}
+
 /* Total Subjects */
 $stmt = $conn->prepare("
     SELECT COUNT(DISTINCT s.subject_name) AS total_subjects

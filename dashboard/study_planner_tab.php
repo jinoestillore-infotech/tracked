@@ -248,6 +248,7 @@
                     </div>
                 </div>
             <?php endwhile; ?>
+            <?php include 'study_planner_pagination.php'; ?>
         <?php else: ?>
 
             <!-- EMPTY STATE -->

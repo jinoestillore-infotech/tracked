@@ -12,6 +12,22 @@ $user = $_SESSION['user'];
 $search = trim($_GET['search'] ?? '');
 $subjectFilter = trim($_GET['subject'] ?? '');
 
+
+/* =========================
+   PAGINATION
+========================= */
+$topicsLimit = 9;
+
+$topicsPage = isset($_GET['page'])
+    ? (int) $_GET['page']
+    : 1;
+
+if ($topicsPage < 1) {
+    $topicsPage = 1;
+}
+
+$topicsOffset = ($topicsPage - 1) * $topicsLimit;
+
 /* =========================
    SUBJECT FILTER DROPDOWN
 ========================= */
@@ -26,6 +42,64 @@ $subjectQuery = $conn->prepare("
 $subjectQuery->bind_param("i", $user['id']);
 $subjectQuery->execute();
 $subjectResult = $subjectQuery->get_result();
+
+/* =========================
+   COUNT TOTAL TOPICS
+========================= */
+$countSql = "
+    SELECT COUNT(DISTINCT st.id) AS total
+
+    FROM subject_topics st
+
+    JOIN schedules s
+        ON st.schedule_id = s.id
+
+    JOIN schedule_days sd
+        ON s.day_id = sd.id
+
+    WHERE sd.user_id = ?
+";
+
+$countParams = [$user['id']];
+$countTypes = "i";
+
+if (!empty($search)) {
+
+    $countSql .= "
+        AND (
+            st.topic_name LIKE ?
+            OR st.description LIKE ?
+            OR s.subject_code LIKE ?
+            OR s.subject_name LIKE ?
+        )
+    ";
+
+    $searchParam = "%{$search}%";
+
+    $countParams[] = $searchParam;
+    $countParams[] = $searchParam;
+    $countParams[] = $searchParam;
+    $countParams[] = $searchParam;
+
+    $countTypes .= "ssss";
+}
+
+if (!empty($subjectFilter)) {
+
+    $countSql .= " AND s.subject_code = ? ";
+
+    $countParams[] = $subjectFilter;
+    $countTypes .= "s";
+}
+
+$countStmt = $conn->prepare($countSql);
+$countStmt->bind_param($countTypes, ...$countParams);
+$countStmt->execute();
+
+$countResult = $countStmt->get_result();
+$totalTopics = $countResult->fetch_assoc()['total'];
+
+$totalPages = ceil($totalTopics / $topicsLimit);
 
 /* =========================
    MAIN TOPICS QUERY
@@ -91,7 +165,13 @@ if (!empty($subjectFilter)) {
 $sql .= "
     GROUP BY st.id
     ORDER BY st.created_at DESC
+    LIMIT ? OFFSET ?
 ";
+
+$params[] = $topicsLimit;
+$params[] = $topicsOffset;
+
+$types .= "ii";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param($types, ...$params);

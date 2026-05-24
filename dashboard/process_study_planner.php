@@ -9,6 +9,43 @@ if (!isset($_SESSION['user'])) {
 
 $user_id = $_SESSION['user']['id'];
 
+/* =========================
+   PAGINATION
+========================= */
+$plansLimit = 6;
+
+$plansPage = isset($_GET['page'])
+    ? (int) $_GET['page']
+    : 1;
+
+if ($plansPage < 1) {
+    $plansPage = 1;
+}
+
+$plansOffset = ($plansPage - 1) * $plansLimit;
+
+/* =========================
+   TOTAL STUDY PLANS
+========================= */
+$totalStmt = $conn->prepare("
+    SELECT COUNT(*) AS total
+    FROM study_plans
+    WHERE user_id = ?
+");
+
+$totalStmt->bind_param("i", $user_id);
+$totalStmt->execute();
+
+$totalResult = $totalStmt->get_result()->fetch_assoc();
+
+$totalPlansPagination = $totalResult['total'] ?? 0;
+
+$totalPages = ceil($totalPlansPagination / $plansLimit);
+
+if ($plansPage > $totalPages && $totalPages > 0) {
+    $plansPage = $totalPages;
+}
+
 // FETCH ONLY SUBJECTS WITH TOPICS
 $subjectsStmt = $conn->prepare("
     SELECT DISTINCT
@@ -78,9 +115,16 @@ $plansStmt = $conn->prepare("
             WHEN 'Completed' THEN 3
         END,
         sp.study_date ASC
+
+    LIMIT ? OFFSET ?
 ");
 
-$plansStmt->bind_param("i", $user_id);
+$plansStmt->bind_param(
+    "iii",
+    $user_id,
+    $plansLimit,
+    $plansOffset
+);
 $plansStmt->execute();
 
 $plans = $plansStmt->get_result();

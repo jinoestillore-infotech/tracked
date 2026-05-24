@@ -70,9 +70,9 @@ function updateTopicMastery($conn, $topic_id)
 
     // DETERMINE MASTERY
     if (
-        $highlightCount >= 2 &&
-        $fileCount >= 3 &&
-        $questionCount >= 3
+        $highlightCount >= 5 &&
+        $fileCount >= 6 &&
+        $questionCount >= 7
     ) {
 
         $mastery =

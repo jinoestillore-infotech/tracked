@@ -27,10 +27,10 @@ include '../includes/header.php';
             <div class="col-12 col-lg-3
                         order-1 order-lg-2
                         text-start text-lg-end mb-3 mb-lg-0">
-                <a href="subject.php?id=<?= $topic['schedule_id']; ?>&tab=topics"
+                <a href="index.php"
                    class="btn btn-light btn-sm rounded-pill px-3 py-2">
                     <i class="bi bi-arrow-left"></i>
-                    Back to Topics
+                    Back to Dashboard
                 </a>
             </div>
             <!-- Topic Info -->

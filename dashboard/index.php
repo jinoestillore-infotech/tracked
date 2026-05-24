@@ -8,7 +8,6 @@ unset($_SESSION['success'], $_SESSION['error']);
 
 date_default_timezone_set('Asia/Manila');
 
-$user = $_SESSION['user'];
 $pageTitle = $user['fullname'] . " - Dashboard";
 include '../includes/header.php';
 ?>
@@ -39,7 +38,9 @@ include '../includes/header.php';
                 <div>
                     <h5 class="fw-bold text-white mb-1 m-0 p-0">
                         <?= htmlspecialchars($user['fullname']) ?>             
-                        <i class="text-success bi bi-check-circle-fill">
+                        <span class="<?= $streak_color; ?> fw-bold fs-4 ms-1">
+                            <i class="bi <?= $streak_icon; ?>"></i>
+                        </span>
                         </i>
                     </h5>
                     <a href="edit_profile.php" class="btn btn-sm btn-glow">
@@ -70,13 +71,19 @@ include '../includes/header.php';
     <div class="col-12 col-sm-7">
         <div class="welcome-card">
             <div class="row g-4">
-                <div class="col-12 col-lg-8">
-                    <h2 class="fw-bold text-dark mb-2 lh-sm">
+                <div class="col-12 col-lg-12">
+                    <h2 class="fw-bold text-dark mb-0 mt-3 lh-sm">
                         Streak Journey
-                        
                     </h2>
-                    <p class="mb-0 text-dark opacity-75 small">
-                        <!-- STREAK HERE -->
+                    <span class="<?= $streak_color; ?> fw-bold fs-4">
+                        <i class="bi <?= $streak_icon; ?>"></i>
+                        <?= $streak_rank; ?>
+                    </span>
+                    <p class="mb-0 text-dark opacity-75">
+                        You are currently on a
+                        <strong class="text-warning"><?= $user['current_streak'] ?? 0; ?> day streak</strong>.
+                        Your longest productivity streak is
+                        <strong class="text-danger"><?= $user['longest_streak'] ?? 0; ?> days</strong>.
                     </p>
                 </div>
             </div>

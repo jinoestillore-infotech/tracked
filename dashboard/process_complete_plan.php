@@ -1,5 +1,7 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Manila');
+
 require '../includes/db.php';
 
 if (!isset($_SESSION['user'])) {
@@ -87,6 +89,9 @@ $updateStmt->bind_param(
 
 // SUCCESS
 if ($updateStmt->execute()) {
+    
+    require '../includes/update_streak.php';
+    updateUserStreak($conn, $user_id);
 
     // AUTO UPDATE TOPIC MASTERY
     if (!empty($plan['topic_id'])) {
