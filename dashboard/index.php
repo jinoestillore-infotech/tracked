@@ -31,21 +31,6 @@ include '../includes/header.php';
 </nav>
 <div class="container py-4">
 <div class="row mb-4">
-    <div class="col-12 col-sm-7">
-        <div class="welcome-card">
-            <div class="row g-4">
-                <div class="col-12 col-lg-8">
-                    <h2 class="fw-bold text-dark mb-2 lh-sm">
-                        Welcome back!
-                        
-                    </h2>
-                    <p class="mb-0 text-dark opacity-75 small">
-                        Stay consistent and keep improving your learning progress.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="col-12 col-sm-5">
         <div class="user-card">
             <div class="d-flex align-items-center justify-content-between mb-0">
@@ -76,6 +61,21 @@ include '../includes/header.php';
                     <?php else: ?>
                         <i class="bi bi-person-circle"></i>
                     <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-7">
+        <div class="welcome-card">
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <h2 class="fw-bold text-dark mb-2 lh-sm">
+                        Streak Journey
+                        
+                    </h2>
+                    <p class="mb-0 text-dark opacity-75 small">
+                        <!-- STREAK HERE -->
+                    </p>
                 </div>
             </div>
         </div>

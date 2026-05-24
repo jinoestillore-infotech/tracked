@@ -23,25 +23,27 @@ include '../includes/header.php';
 <div class="container py-4">
     <!-- HEADER -->
     <div class="welcome-card mb-3">
-        <div class="row align-items-center">
-            <!-- BUTTON -->
-            <div class="col-12 col-lg-4 
-                        order-1 order-lg-2 
-                        text-start text-lg-end mb-3 mb-lg-0">
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-8">
                 <a href="index.php"
-                   class="btn btn-light btn-sm rounded-pill px-3 py-2">
+                   class="btn btn-light mb-3 rounded-pill px-3">
                     <i class="bi bi-arrow-left"></i>
                     Back to Dashboard
                 </a>
-            </div>
-            <!-- TITLE -->
-            <div class="col-12 col-lg-8 order-2 order-lg-1">
                 <h2 class="fw-bold text-white mb-2">
                     Study Planner
                 </h2>
                 <p class="text-light opacity-75 mb-0 small">
                     Organize your study sessions, deadlines, and learning goals.
                 </p>
+            </div>
+            <div class="col-12 col-lg-4 text-lg-end">
+                <button class="btn btn-light fw-semibold rounded-pill px-4"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addPlanModal">
+                    <i class="bi bi-plus-lg"></i>
+                    Add Plan
+                </button>
             </div>
         </div>
     </div>
@@ -114,21 +116,6 @@ include '../includes/header.php';
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- ACTIONS -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h5 class="fw-bold text-dark mb-1">
-                Your Study Plans
-            </h5>
-        </div>
-        <button class="btn btn-primary btn-sm rounded-pill px-4"
-                data-bs-toggle="modal"
-                data-bs-target="#addPlanModal">
-            <i class="bi bi-plus-lg"></i>
-            Add Plan
-        </button>
     </div>
     <?php include 'study_stats.php'; ?>
     <?php include 'study_planner_tab.php'; ?>

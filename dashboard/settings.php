@@ -40,24 +40,26 @@ include '../includes/header.php';
 <div class="container py-4">
     <!-- HEADER -->
     <div class="welcome-card mb-4">
-        <div class="d-flex flex-column flex-lg-row 
-                    justify-content-between 
-                    align-items-lg-center
-                    gap-3">
-            <div>
+        <div class="row align-items-center">
+            <!-- Button -->
+            <div class="col-12 col-lg-4 
+                        order-1 order-lg-2 
+                        text-start text-lg-end mb-3 mb-lg-0">
+                <a href="index.php"
+                class="btn btn-light btn-sm rounded-pill px-3 py-2">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Dashboard
+                </a>
+            </div>
+
+            <!-- Subject Info -->
+            <div class="col-12 col-lg-8 order-2 order-lg-1">
                 <h2 class="fw-bold text-white mb-2">
                     Account Settings
                 </h2>
-                <p class="text-light opacity-75 mb-0">
+                <p class="text-light opacity-75 mb-0 small">
                     Manage your security settings and password.
                 </p>
-            </div>
-            <div>
-                <a href="index.php"
-                   class="btn btn-light rounded-pill px-4">
-                    <i class="bi bi-arrow-left me-1"></i>
-                    Back to Dashboard
-                </a>
             </div>
         </div>
     </div>
