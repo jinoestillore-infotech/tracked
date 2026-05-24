@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($stmt->execute()) {
-
+    require '../includes/topic_mastery.php';
+    updateTopicMastery($conn, $topic_id);
         $_SESSION['success'] =
             "Highlight added successfully.";
 
@@ -51,4 +52,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: topic.php?id=" . $topic_id . "&tab=highlights");
     exit;
 }
+
 ?>

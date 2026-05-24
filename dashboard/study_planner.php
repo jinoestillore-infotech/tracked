@@ -122,8 +122,8 @@ include '../includes/header.php';
             <h5 class="fw-bold text-dark mb-1">
                 Your Study Plans
             </h5>
-            <small class="text-secondary">
-                <?= $plans->num_rows; ?> total plans
+            <small class="text-light bg-success px-2 py-1 rounded-pill">
+                You have <?= $plans->num_rows; ?> plans
             </small>
         </div>
         <button class="btn btn-primary btn-sm rounded-pill px-4"

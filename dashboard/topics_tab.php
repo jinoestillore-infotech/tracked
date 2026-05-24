@@ -186,7 +186,7 @@ $topics = $stmt->get_result();
                                             Mastery Level
                                         </label>
                                         <select name="mastery_level"
-                                                class="form-select">
+                                                class="form-select" disabled>
                                             <option value="Not Started"
                                                 <?= $topic['mastery_level'] == 'Not Started' ? 'selected' : ''; ?>>
                                                 Not Started

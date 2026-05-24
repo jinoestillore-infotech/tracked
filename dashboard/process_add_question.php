@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($stmt->execute()) {
-
+    require '../includes/topic_mastery.php';
+    updateTopicMastery($conn, $topic_id);
         $_SESSION['success'] =
             "Practice question added successfully.";
 

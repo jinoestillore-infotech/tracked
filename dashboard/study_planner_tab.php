@@ -95,14 +95,31 @@
                         <!-- FOOTER -->
                         <div class="card-footer border-0 bg-transparent pt-0 mt-2">
                             <div class="d-flex flex-wrap gap-2 justify-content-end mb-2">
+                                <?php
+                                $currentDateTime = strtotime(date('Y-m-d H:i:s'));
+                                $planStart = strtotime(
+                                    $plan['study_date'] . ' ' . $plan['start_time']
+                                );
+                                $planEnd = strtotime(
+                                    $plan['study_date'] . ' ' . $plan['end_time']
+                                );
+                                $canComplete =
+                                    $currentDateTime >= $planStart;
+                                ?>
                                 <?php if ($plan['status'] !== 'Completed'): ?>
-                                    <a href="process_complete_plan.php?id=<?= $plan['id']; ?>"
-                                    class="btn btn-success btn-sm rounded-pill px-3">
-                                        <i class="bi bi-check2-circle"></i>
-                                        <span class="d-none d-sm-inline">
+                                    <?php if ($canComplete): ?>
+                                        <a href="process_complete_plan.php?id=<?= $plan['id']; ?>"
+                                        class="btn btn-success btn-sm rounded-pill px-3">
+                                            <i class="bi bi-check2-circle"></i>
                                             Complete
-                                        </span>
-                                    </a>
+                                        </a>
+                                    <?php else: ?>
+                                        <button class="btn btn-secondary btn-sm rounded-pill px-3"
+                                                disabled>
+                                            <i class="bi bi-lock"></i>
+                                            Locked
+                                        </button>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 <!-- EDIT -->
                                 <button class="btn btn-outline-light btn-sm rounded-pill"
