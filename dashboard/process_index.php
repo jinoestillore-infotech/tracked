@@ -21,39 +21,50 @@ $userStmt->bind_param(
     "i",
     $user_id
 );
-
 $userStmt->execute();
-
 $user = $userStmt->get_result()->fetch_assoc();
-
 $current_streak = $user['current_streak'] ?? 0;
 
-if ($current_streak >= 100) {
+/* STREAK RESET CHECK */
+$today = date('Y-m-d');
+$yesterday = date('Y-m-d', strtotime('-1 day'));
 
+if (
+    !empty($user['last_study_date']) &&
+    $user['last_study_date'] !== $today &&
+    $user['last_study_date'] !== $yesterday
+) {
+    $resetStmt = $conn->prepare("
+        UPDATE users
+        SET current_streak = 0
+        WHERE id = ?
+    ");
+    $resetStmt->bind_param(
+        "i",
+        $user_id
+    );
+    $resetStmt->execute();
+    // UPDATE LOCAL VALUES
+    $current_streak = 0;
+    $user['current_streak'] = 0;
+}
+if ($current_streak >= 100) {
     $streak_rank = "Legendary Learner";
     $streak_icon = "bi-fire";
     $streak_color = "text-danger";
-
 } elseif ($current_streak >= 30) {
-
     $streak_rank = "Gold Scholar";
     $streak_icon = "bi-trophy";
     $streak_color = "text-warning";
-
 } elseif ($current_streak >= 7) {
-
     $streak_rank = "Silver Scholar";
     $streak_icon = "bi-patch-check";
     $streak_color = "text-info";
-
 } elseif ($current_streak >= 3) {
-
     $streak_rank = "Bronze Scholar";
     $streak_icon = "bi-award";
     $streak_color = "text-warning";
-
 } else {
-
     $streak_rank = "Beginner";
     $streak_icon = "bi-stars";
     $streak_color = "text-secondary";
@@ -69,50 +80,56 @@ $stmt = $conn->prepare("
 
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-
 $result = $stmt->get_result();
 $data = $result->fetch_assoc();
-
 $total_subjects = $data['total_subjects'];
 
 /* Total Topics */
 $topicStmt = $conn->prepare("
     SELECT COUNT(st.id) AS total_topics
-
     FROM subject_topics st
-
     INNER JOIN schedules s
         ON st.schedule_id = s.id
-
     INNER JOIN schedule_days d
         ON s.day_id = d.id
-
     WHERE d.user_id = ?
 ");
 
 $topicStmt->bind_param("i", $user_id);
 $topicStmt->execute();
-
 $topicResult = $topicStmt->get_result();
 $topicData = $topicResult->fetch_assoc();
-
 $total_topics = $topicData['total_topics'];
+
+/* Pending Study Plans */
+$pendingStmt = $conn->prepare("
+    SELECT COUNT(id) AS pending_plans
+    FROM study_plans
+    WHERE user_id = ?
+    AND status = 'Pending'
+");
+$pendingStmt->bind_param(
+    "i",
+    $user_id
+);
+$pendingStmt->execute();
+$pendingResult =
+    $pendingStmt->get_result();
+$pendingData =
+    $pendingResult->fetch_assoc();
+$pending_plans =
+    $pendingData['pending_plans'] ?? 0;
 
 /* Today Subject */
 $currentDay = date('l');
-
 $todayStmt = $conn->prepare("
     SELECT COUNT(s.id) AS today_subjects
-
     FROM schedules s
-
     INNER JOIN schedule_days d
         ON s.day_id = d.id
-
     WHERE d.user_id = ?
     AND d.day_name = ?
 ");
-
 $todayStmt->bind_param(
     "is",
     $user_id,
@@ -120,10 +137,8 @@ $todayStmt->bind_param(
 );
 
 $todayStmt->execute();
-
 $todayResult = $todayStmt->get_result();
 $todayData = $todayResult->fetch_assoc();
-
 $today_subjects =
     $todayData['today_subjects'] ?? 0;
 ?>

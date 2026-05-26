@@ -114,10 +114,6 @@ include '../includes/header.php';
                 <i class="bi bi-calendar-event text-light"></i>
                 Study Planner
             </a>
-            <a href="#" class="nav-link-custom">
-                <i class="bi bi-stickies text-light"></i>
-                Notes
-            </a>
         </div>
     </div>
     </div>
@@ -167,14 +163,17 @@ include '../includes/header.php';
         <div class="col-12 col-md-6">
             <div class="dashboard-card">
                 <div class="stat-icon">
-                    <i class="bi bi-bar-chart"></i>
+                    <i class="bi bi-journals"></i>
                 </div>
-                <h3 class="fw-bold mb-1">0%</h3>
+                <h3 class="fw-bold mb-1">
+                    <?= $pending_plans ?? 0; ?>
+                </h3>
                 <p class="text-secondary mb-0">
-                    Overall Progress
+                    Pending Plans
                 </p>
             </div>
         </div>
+
     </div>
     </div>
 </div>
