@@ -54,7 +54,7 @@ include 'includes/header.php';
     </div>
 </section>
 
-<section id="features" class="py-5" style="height: 80vh">
+<section id="features" class="py-5">
     <div class="container text-center">
         <h2 class="fw-bold mb-5">Everything You Need</h2>
         <div class="row g-4">
@@ -89,7 +89,7 @@ include 'includes/header.php';
     </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-5 bg-light mt-5">
     <div class="container text-center">
         <h2 class="fw-bold mb-4">What Students Say</h2>
         <div class="row g-3">

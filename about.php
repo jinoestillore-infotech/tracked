@@ -13,7 +13,7 @@ include 'includes/header.php';
     <div class="container-fluid">
         <div class="row align-items-center g-2">
             <div class="col-lg-6">
-                <img src="assets/images/trackEd-icon1.png"
+                <img src="assets/images/tracked-icon1.png"
                      class="img-fluid">
             </div>
             <div class="col-lg-6">

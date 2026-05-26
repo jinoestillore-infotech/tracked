@@ -36,7 +36,7 @@ include '../includes/header.php';
             <div class="col-12 col-lg-4
                         order-1 order-lg-2
                         text-start text-lg-end mb-3 mb-lg-0">
-                <a href="../index.php"
+                <a href="index.php"
                    class="btn btn-light btn-sm rounded-pill px-3 py-2">
 
                     <i class="bi bi-arrow-left"></i>
