@@ -32,7 +32,7 @@ $topicsOffset = ($topicsPage - 1) * $topicsLimit;
    SUBJECT FILTER DROPDOWN
 ========================= */
 $subjectQuery = $conn->prepare("
-    SELECT DISTINCT s.subject_code
+    SELECT DISTINCT s.subject_name
     FROM schedules s
     JOIN schedule_days sd ON s.day_id = sd.id
     WHERE sd.user_id = ?

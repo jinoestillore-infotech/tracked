@@ -63,7 +63,7 @@ if ($password === '') {
 // =====================
 if ($email !== '' && $password !== '') {
 
-    $stmt = $conn->prepare("SELECT id, fullname, email, password, profile_picture FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, fullname, email, password, profile_picture, role FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -116,7 +116,8 @@ $_SESSION['user'] = [
     'id' => $user['id'],
     'fullname' => $user['fullname'],
     'email' => $user['email'],
-    'profile_picture' => $user['profile_picture']
+    'profile_picture' => $user['profile_picture'],
+    'role' => $user['role']
 ];
 
 header("Location: ../dashboard/index.php");

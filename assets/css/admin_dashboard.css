@@ -1,0 +1,110 @@
+:root {
+    --primary: #4f46e5;
+    --dark: #0f172a;
+    --muted: #64748b;
+    --border: #dce0e4;
+}
+
+/* Cards */
+.dashboard-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    height: 100%;
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.nav-card {
+    background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
+}
+
+/* Navigation links */
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    transition: 0.2s;
+    font-weight: 500;
+    background: rgba(255,255,255,0.05);
+}
+
+.nav-link-custom i {
+    font-size: 18px;
+    color: #a5b4fc;
+}
+
+.nav-link-custom:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateX(4px);
+    color: #ffffff;
+}
+
+/* default spacing (desktop) */
+.nav-grid {
+    gap: 12px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(79,70,229,0.1);
+    color: var(--primary);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.table-scroll {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+/* Schedule Header Card */
+.welcome-card{
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+/* Back Button */
+.welcome-card .btn-light{
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    transition: 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.welcome-card .btn-light:hover{
+    background: #fff;
+    color: #4f46e5;
+}
+
+/* Add Day Button */
+.welcome-card .btn-light.fw-semibold{
+    background: #fff;
+    color: #4f46e5;
+    border: none;
+}
+
+.welcome-card .btn-light.fw-semibold:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}

@@ -55,10 +55,10 @@ include '../includes/header.php';
                     </option>
                     <?php while($subject = $subjectResult->fetch_assoc()): ?>
                         <option
-                            value="<?= $subject['subject_code'] ?>"
-                            <?= $subjectFilter === $subject['subject_code'] ? 'selected' : '' ?>
+                            value="<?= $subject['subject_name'] ?>"
+                            <?= $subjectFilter === $subject['subject_name'] ? 'selected' : '' ?>
                         >
-                            <?= htmlspecialchars($subject['subject_code']) ?>
+                            <?= htmlspecialchars($subject['subject_name']) ?>
                         </option>
                     <?php endwhile; ?>
                 </select>

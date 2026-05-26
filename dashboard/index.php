@@ -43,12 +43,12 @@ include '../includes/header.php';
                         </span>
                         </i>
                     </h5>
-                    <a href="edit_profile.php" class="btn btn-sm btn-glow">
+                    <a href="edit_profile.php" class="btn btn-sm btn-glow mt-1">
                         <i class="bi bi-pencil-square me-1"></i>
                         Edit Profile
                     </a>
 
-                    <a href="settings.php" class="btn btn-sm btn-outline-glow">
+                    <a href="settings.php" class="btn btn-sm btn-outline-glow mt-1">
                         <i class="bi bi-gear me-1"></i>
                         Settings
                     </a>
@@ -114,6 +114,13 @@ include '../includes/header.php';
                 <i class="bi bi-calendar-event text-light"></i>
                 Study Planner
             </a>
+            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                <a href="../admin/index.php"
+                class="nav-link-custom">
+                    <i class="bi bi-shield-lock"></i>
+                    Admin
+                </a>
+            <?php endif; ?>
         </div>
     </div>
     </div>

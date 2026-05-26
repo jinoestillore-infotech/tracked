@@ -178,7 +178,6 @@ body {
     color: var(--muted);
 }
 
-
 /* Mobile */
 @media (max-width: 768px) {
     .nav-grid {
