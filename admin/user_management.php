@@ -17,6 +17,10 @@ if ($_SESSION['user']['role'] !== 'admin') {
     header("Location: ../dashboard/index.php");
     exit;
 }
+$success = $_SESSION['success'] ?? '';
+$error = $_SESSION['error'] ?? '';
+
+unset($_SESSION['success'], $_SESSION['error']);
 
 $pageTitle = "TrackEd - Admin Dashboard";
 include '../includes/header.php';
@@ -155,6 +159,18 @@ include '../includes/header.php';
         </div>
     </div>
 </div>
+<div id="toast-container"></div>
+<script src="../assets/js/toast.js"></script>
+<?php if (!empty($success)): ?>
+<script>
+showToast("<?= htmlspecialchars($success) ?>", "success");
+</script>
+<?php endif; ?>
 
+<?php if (!empty($error)): ?>
+<script>
+showToast("<?= htmlspecialchars($error) ?>", "error");
+</script>
+<?php endif; ?>
 </body>
 </html>

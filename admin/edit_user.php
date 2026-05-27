@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "Failed to update user.";
     }
 
-    header("Location: index.php");
+    header("Location: user_management.php");
     exit;
 }
 

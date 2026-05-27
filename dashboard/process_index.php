@@ -141,4 +141,6 @@ $todayResult = $todayStmt->get_result();
 $todayData = $todayResult->fetch_assoc();
 $today_subjects =
     $todayData['today_subjects'] ?? 0;
+
+    
 ?>
