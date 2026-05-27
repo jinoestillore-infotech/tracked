@@ -47,6 +47,6 @@ if ($stmt->execute()) {
         "Failed to delete user.";
 }
 
-header("Location: index.php");
+header("Location: user_management.php");
 exit;
 ?>
